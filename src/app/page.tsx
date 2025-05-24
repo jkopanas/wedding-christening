@@ -31,17 +31,17 @@ export default function HomePage() {
         }}
       />
       <div className="max-w-2xl mx-auto text-center">
-        <h1 className="text-4xl font-serif text-rose-800 mb-4">Share Your Wedding Memories 💍</h1>
+        <h1 className="text-4xl font-serif text-rose-800 mb-4">Georgia & Stelios's Special Day 💝</h1>
         <p className="text-gray-600 mb-8">
-          Help us capture the magic of this special day by sharing your photos.
-          Upload up to 10 images (max 4MB each) to contribute to our wedding album.
+          Help us capture the magic of Georgia and Stelios's wedding and christening ceremony by sharing your photos.
+          Upload up to 10 images (max 4MB each) to contribute to our shared album.
         </p>
 
         <div className="bg-white rounded-lg shadow-lg p-8 border border-rose-100">
           <CustomUploader
             endpoint="weddingPhotoUploader"
             onClientUploadComplete={(res) => {
-              toast.success("Thank you for sharing your memories! 💝", {
+              toast.success("Thank you for sharing these precious moments with Georgia & Stelios! 💝", {
                 duration: 4000,
               });
               console.log("Upload complete:", res);
@@ -56,7 +56,7 @@ export default function HomePage() {
         </div>
 
         <p className="mt-6 text-sm text-gray-500">
-          Your photos will be added to our shared wedding album. Thank you for helping us preserve these precious moments! 💕
+          Your photos will be added to Georgia & Stelios's shared album, preserving these beautiful memories of their wedding and christening ceremony. Thank you for helping us capture these special moments! 💕
         </p>
       </div>
     </main>

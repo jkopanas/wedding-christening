@@ -80,7 +80,7 @@ export function CustomUploader({
 
   return (
     <div className="rounded-lg border border-dashed border-rose-300 p-6 bg-white shadow-lg">
-      <h2 className="text-xl font-semibold text-rose-700 mb-2">Upload Your Memories 📸</h2>
+      <h2 className="text-xl font-semibold text-rose-700 mb-2">Share Your Photos with Georgia & Stelios 📸</h2>
 
       {/* File Selection Area */}
       <div>
