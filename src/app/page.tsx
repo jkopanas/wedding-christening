@@ -1,101 +1,64 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { CustomUploader } from "./CustomUploader"; 
+import type { OurFileRouter } from "@/uploadthing.config";
+import { Toaster, toast } from "react-hot-toast";
+
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className="min-h-screen bg-gradient-to-b from-rose-50 to-white p-8">
+      <Toaster 
+        position="top-center"
+        toastOptions={{
+          style: {
+            background: '#fff',
+            color: '#4B5563',
+            border: '1px solid #FBCFE8',
+            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+          },
+          success: {
+            iconTheme: {
+              primary: '#EC4899',
+              secondary: '#fff',
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: '#EF4444',
+              secondary: '#fff',
+            },
+          },
+        }}
+      />
+      <div className="max-w-2xl mx-auto text-center">
+        <h1 className="text-4xl font-serif text-rose-800 mb-4">Share Your Wedding Memories 💍</h1>
+        <p className="text-gray-600 mb-8">
+          Help us capture the magic of this special day by sharing your photos.
+          Upload up to 10 images (max 4MB each) to contribute to our wedding album.
+        </p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <div className="bg-white rounded-lg shadow-lg p-8 border border-rose-100">
+          <CustomUploader
+            endpoint="weddingPhotoUploader"
+            onClientUploadComplete={(res) => {
+              toast.success("Thank you for sharing your memories! 💝", {
+                duration: 4000,
+              });
+              console.log("Upload complete:", res);
+            }}
+            onUploadError={(error: Error) => {
+              toast.error(`Upload failed: ${error.message}`, {
+                duration: 4000,
+              });
+            }}
+            className="ut-button:bg-rose-500 ut-button:hover:bg-rose-600 ut-button:rounded-full ut-button:px-8 ut-button:py-4 ut-button:text-white ut-button:font-semibold ut-button:text-lg ut-button:transition-all ut-button:duration-200 ut-button:shadow-lg ut-button:hover:shadow-xl ut-button:flex ut-button:items-center ut-button:justify-center ut-button:gap-2 ut-button:min-w-[250px] ut-button:mx-auto ut-button:disabled:opacity-70 ut-button:disabled:cursor-not-allowed ut-button:border-2 ut-button:border-rose-400 ut-button:hover:border-rose-500"
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <p className="mt-6 text-sm text-gray-500">
+          Your photos will be added to our shared wedding album. Thank you for helping us preserve these precious moments! 💕
+        </p>
+      </div>
+    </main>
   );
 }
