@@ -1,6 +1,8 @@
 [build]
-  command = "yarn build"
-  publish = "out"
+  # Use yarn commands, relying on .yarnrc to pick local yarn 1 binary
+  command = "yarn install && yarn build"
+  publish = "out"  # your output folder, adjust if needed
 
 [build.environment]
-  YARN_ENABLE_INLINE_BUILDSCRIPT = "1"
+  # Disable Corepack auto yarn version management (optional but recommended)
+  NETLIFY_USE_YARN2 = "false"
