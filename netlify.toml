@@ -3,4 +3,4 @@
   publish = "out"
 
 [build.environment]
-  YARN_VERSION = "1.22.19"
+  YARN_ENABLE_INLINE_BUILDSCRIPT = "1"
