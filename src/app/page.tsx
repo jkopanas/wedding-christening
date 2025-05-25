@@ -31,23 +31,32 @@ export default function HomePage() {
         }}
       />
       <div className="max-w-2xl mx-auto text-center">
-        <h1 className="text-4xl font-serif text-rose-800 mb-4">Georgia & Stelios's Special Day 💝</h1>
+        <h1 className="text-4xl font-serif text-rose-800 mb-4">Γάμος & Βάπτιση 💝</h1>
+        <p className="text-gray-600 mb-2">
+          Γάμος της Γεωργίας & του Στέλιου
+        </p>
+        <p className="text-gray-600 mb-2">
+          Βάπτιση της Δήμητρας
+        </p>
+        <p className="text-gray-600 mb-4">
+          1 Ιουνίου 2025
+        </p>
         <p className="text-gray-600 mb-8">
-          Help us capture the magic of Georgia and Stelios's wedding and christening ceremony by sharing your photos.
-          Upload up to 10 images (max 4MB each) to contribute to our shared album.
+          Βοηθήστε μας να καταγράψουμε τη μαγεία του γάμου της Γεωργίας & του Στέλιου και του βαπτίσματος της Δήμητρας μοιράζοντας τις φωτογραφίες και τα βίντεό σας.
+          Μεταφορτώστε έως 10 αρχεία (μέγιστο 32MB το καθένα) για να συμβάλετε στο κοινό μας άλμπουμ.
         </p>
 
         <div className="bg-white rounded-lg shadow-lg p-8 border border-rose-100">
           <CustomUploader
             endpoint="weddingPhotoUploader"
             onClientUploadComplete={(res) => {
-              toast.success("Thank you for sharing these precious moments with Georgia & Stelios! 💝", {
+              toast.success("Ευχαριστούμε που μοιραστήκατε αυτές τις πολύτιμες στιγμές μαζί μας! 💝", {
                 duration: 4000,
               });
               console.log("Upload complete:", res);
             }}
             onUploadError={(error: Error) => {
-              toast.error(`Upload failed: ${error.message}`, {
+              toast.error(`Η μεταφόρτωση απέτυχε: ${error.message}`, {
                 duration: 4000,
               });
             }}
@@ -56,7 +65,7 @@ export default function HomePage() {
         </div>
 
         <p className="mt-6 text-sm text-gray-500">
-          Your photos will be added to Georgia & Stelios's shared album, preserving these beautiful memories of their wedding and christening ceremony. Thank you for helping us capture these special moments! 💕
+          Οι φωτογραφίες και τα βίντεό σας θα προστεθούν στο κοινό άλμπουμ του γάμου της Γεωργίας & του Στέλιου και του βαπτίσματος της Δήμητρας, διατηρώντας αυτές τις όμορφες αναμνήσεις. Ευχαριστούμε που μας βοηθάτε να καταγράψουμε αυτές τις στιγμές! 💕
         </p>
       </div>
     </main>
