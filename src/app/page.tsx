@@ -31,16 +31,18 @@ export default function HomePage() {
         }}
       />
       <div className="max-w-2xl mx-auto text-center">
-        <h1 className="text-4xl font-serif text-rose-800 mb-4">Γάμος & Βάπτιση 💝</h1>
-        <p className="text-gray-600 mb-2">
-          Γάμος της Γεωργίας & του Στέλιου
-        </p>
-        <p className="text-gray-600 mb-2">
-          Βάπτιση της Δήμητρας
-        </p>
-        <p className="text-gray-600 mb-4">
+        <p className="text-2xl font-serif text-rose-600 mb-6">
           1 Ιουνίου 2025
         </p>
+
+        <h2 className="text-3xl font-serif text-rose-700 mb-4">
+          Γεωργία & Στέλιος 💝
+        </h2>
+
+        <h2 className="text-3xl font-serif text-rose-700 mb-8">
+          Δήμητρα 👶
+        </h2>
+
         <p className="text-gray-600 mb-8">
           Βοηθήστε μας να καταγράψουμε τη μαγεία του γάμου της Γεωργίας & του Στέλιου και του βαπτίσματος της Δήμητρας μοιράζοντας τις φωτογραφίες και τα βίντεό σας.
           Μεταφορτώστε έως 10 αρχεία (μέγιστο 32MB το καθένα) για να συμβάλετε στο κοινό μας άλμπουμ.
